@@ -1,0 +1,548 @@
+{% extends 'layouts/default/page.html' %} {% load i18n %} {% block content %}
+{%if request.user.is_authenticated %} {% translate 'Your username is' %}
+<b>{{ request.user.username }} </b>. {% else %} {% translate 'You are a
+guest.'%} {% endif %}
+
+<div class="container">
+  {% if request.user.is_authenticated %}
+  <div class="welcome-message">
+    <div class="welcome-icon">👋</div>
+    <div>
+      <div class="welcome-text">{% translate 'Welcome back,' %}</div>
+      <div class="username">{{ request.user.username }}</div>
+    </div>
+  </div>
+  {% else %}
+  <div class="guest-message">
+    <div class="guest-icon">👤</div>
+    {% translate 'You are viewing as a guest.' %}
+  </div>
+  {% endif %}
+
+  <div class="exam-planner">
+    <h2 class="planner-heading">
+      <span class="planner-icon">📅</span>
+      {% translate 'Student Exam Planner' %}
+    </h2>
+
+    <div class="study-progress card">
+      <h3 class="section-heading">
+        <span class="heading-icon">📊</span>
+        {% translate 'Study Progress' %}
+      </h3>
+      <div class="progress-container">
+        <div class="progress-bar" style="width: 65%">
+          <span class="progress-text">65%</span>
+        </div>
+      </div>
+      <p class="progress-caption">
+        {% translate 'of study material covered' %}
+      </p>
+    </div>
+
+    <div class="upcoming-exams card">
+      <h3 class="section-heading">
+        <span class="heading-icon">📝</span>
+        {% translate 'Upcoming Exams' %}
+      </h3>
+      <div class="table-responsive">
+        <table class="exams-table">
+          <thead>
+            <tr>
+              <th class="table-header">
+                <span class="header-icon">📚</span>
+                {% translate 'Module' %}
+              </th>
+              <th class="table-header">
+                <span class="header-icon">🗓️</span>
+                {% translate 'Exam Date' %}
+              </th>
+              <th class="table-header">
+                <span class="header-icon">🔄</span>
+                {% translate 'Status' %}
+              </th>
+              <th class="table-header">
+                <span class="header-icon">📈</span>
+                {% translate 'Preparation' %}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="exam-row">
+              <td class="exam-module">
+                <span class="module-icon">💻</span>
+                Programming
+              </td>
+              <td class="exam-date">15 June 2023</td>
+              <td class="exam-status">
+                <span class="status-badge upcoming">
+                  <span class="status-icon">⏳</span>
+                  Upcoming
+                </span>
+              </td>
+              <td class="exam-prep">
+                <div class="prep-container">
+                  <div class="prep-progress">
+                    <div class="prep-bar" style="width: 70%"></div>
+                    <span class="prep-text">70%</span>
+                  </div>
+                  <div class="prep-dots">
+                    <span class="dot filled"></span>
+                    <span class="dot filled"></span>
+                    <span class="dot filled"></span>
+                    <span class="dot filled"></span>
+                    <span class="dot"></span>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="exam-row">
+              <td class="exam-module">
+                <span class="module-icon">🛠️</span>
+                Software Engineering
+              </td>
+              <td class="exam-date">20 June 2023</td>
+              <td class="exam-status">
+                <span class="status-badge upcoming">
+                  <span class="status-icon">⏳</span>
+                  Upcoming
+                </span>
+              </td>
+              <td class="exam-prep">
+                <div class="prep-container">
+                  <div class="prep-progress">
+                    <div class="prep-bar" style="width: 50%"></div>
+                    <span class="prep-text">50%</span>
+                  </div>
+                  <div class="prep-dots">
+                    <span class="dot filled"></span>
+                    <span class="dot filled"></span>
+                    <span class="dot filled"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="exam-row">
+              <td class="exam-module">
+                <span class="module-icon">🗄️</span>
+                Information Systems
+              </td>
+              <td class="exam-date">25 June 2023</td>
+              <td class="exam-status">
+                <span class="status-badge upcoming">
+                  <span class="status-icon">⏳</span>
+                  Upcoming
+                </span>
+              </td>
+              <td class="exam-prep">
+                <div class="prep-container">
+                  <div class="prep-progress">
+                    <div class="prep-bar" style="width: 30%"></div>
+                    <span class="prep-text">30%</span>
+                  </div>
+                  <div class="prep-dots">
+                    <span class="dot filled"></span>
+                    <span class="dot filled"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="exam-row">
+              <td class="exam-module">
+                <span class="module-icon">👨‍💻</span>
+                Human Computer Interaction
+              </td>
+              <td class="exam-date">30 June 2023</td>
+              <td class="exam-status">
+                <span class="status-badge upcoming">
+                  <span class="status-icon">⏳</span>
+                  Upcoming
+                </span>
+              </td>
+              <td class="exam-prep">
+                <div class="prep-container">
+                  <div class="prep-progress">
+                    <div class="prep-bar" style="width: 40%"></div>
+                    <span class="prep-text">40%</span>
+                  </div>
+                  <div class="prep-dots">
+                    <span class="dot filled"></span>
+                    <span class="dot filled"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="study-tips card">
+      <h3 class="section-heading">
+        <span class="heading-icon">💡</span>
+        {% translate 'Study Tips' %}
+      </h3>
+      <div class="tips-container">
+        <div class="tip">
+          <div class="tip-icon">📚</div>
+          <div class="tip-content">
+            {% translate 'Review programming concepts daily' %}
+          </div>
+        </div>
+        <div class="tip">
+          <div class="tip-icon">🧠</div>
+          <div class="tip-content">
+            {% translate 'Practice software engineering case studies' %}
+          </div>
+        </div>
+        <div class="tip">
+          <div class="tip-icon">📊</div>
+          <div class="tip-content">
+            {% translate 'Create diagrams for information systems concepts' %}
+          </div>
+        </div>
+        <div class="tip">
+          <div class="tip-icon">👥</div>
+          <div class="tip-content">
+            {% translate 'Test HCI principles with real-world examples' %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Base Styles */
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  /* Welcome Message */
+  .welcome-message,
+  .guest-message {
+    background: linear-gradient(135deg, #4a6fa5, #3a5a8a);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .welcome-icon,
+  .guest-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+  }
+
+  .welcome-text {
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  .username {
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: #ffd700;
+    margin-top: 5px;
+  }
+
+  /* Headings */
+  .planner-heading {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin: 30px 0;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+  }
+
+  .planner-heading::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #4caf50, #2196f3);
+    border-radius: 2px;
+  }
+
+  .planner-icon {
+    margin-right: 15px;
+    vertical-align: middle;
+  }
+
+  .section-heading {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  .heading-icon {
+    margin-right: 10px;
+    font-size: 1.3em;
+  }
+
+  /* Cards */
+  .card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  /* Progress Bars */
+  .progress-container {
+    background: #e0e0e0;
+    border-radius: 20px;
+    height: 30px;
+    margin: 20px 0;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .progress-bar {
+    background: linear-gradient(90deg, #4caf50, #8bc34a);
+    height: 100%;
+    border-radius: 20px;
+    position: relative;
+    transition: width 0.5s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .progress-text {
+    position: absolute;
+    right: 15px;
+    color: white;
+    font-weight: bold;
+    line-height: 30px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .progress-caption {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    margin-top: 10px;
+  }
+
+  /* Table Styles */
+  .table-responsive {
+    overflow-x: auto;
+    margin: 20px 0;
+  }
+
+  .exams-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .table-header {
+    background: linear-gradient(135deg, #2c3e50, #1a2636);
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    position: relative;
+  }
+
+  .header-icon {
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  .exam-row {
+    transition: all 0.2s ease;
+  }
+
+  .exam-row:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .exam-module,
+  .exam-date,
+  .exam-status,
+  .exam-prep {
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .exam-module {
+    font-weight: 600;
+    color: #2c3e50;
+  }
+
+  .module-icon {
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+  .exam-date {
+    color: #555;
+    font-weight: 500;
+  }
+
+  /* Status Badges */
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .status-icon {
+    margin-right: 5px;
+  }
+
+  .upcoming {
+    background: rgba(255, 193, 7, 0.2);
+    color: #e65100;
+  }
+
+  /* Preparation Progress */
+  .prep-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .prep-progress {
+    background: #e0e0e0;
+    border-radius: 10px;
+    height: 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .prep-bar {
+    background: linear-gradient(90deg, #2196f3, #64b5f6);
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+  }
+
+  .prep-text {
+    position: absolute;
+    right: 8px;
+    font-size: 0.75rem;
+    line-height: 20px;
+    color: #333;
+    font-weight: 600;
+  }
+
+  .prep-dots {
+    display: flex;
+    gap: 5px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #e0e0e0;
+  }
+
+  .dot.filled {
+    background: #4caf50;
+  }
+
+  /* Study Tips */
+  .tips-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .tip {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border-left: 4px solid #4caf50;
+  }
+
+  .tip:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    background: white;
+  }
+
+  .tip-icon {
+    font-size: 1.8rem;
+    margin-right: 15px;
+    color: #4caf50;
+  }
+
+  .tip-content {
+    flex: 1;
+    font-weight: 500;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      padding: 15px;
+    }
+
+    .card {
+      padding: 20px;
+    }
+
+    .planner-heading {
+      font-size: 1.6rem;
+    }
+
+    .section-heading {
+      font-size: 1.3rem;
+    }
+
+    .exams-table th,
+    .exams-table td {
+      padding: 12px 10px;
+      font-size: 0.9rem;
+    }
+
+    .tips-container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+{% endblock content %}

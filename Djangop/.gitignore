@@ -1,0 +1,34 @@
+.vscode/
+.ruff_cache/
+.venv/
+
+__pycache__/
+
+source/content/media/
+source/content/static/
+
+env/
+tmp/
+
+db.sqlite3
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+media/
+
+# Environments
+.env
+.venv
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# Static files
+/staticfiles/
+/assets/
